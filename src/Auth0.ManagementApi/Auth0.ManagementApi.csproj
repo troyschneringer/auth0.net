@@ -43,6 +43,8 @@
     <EmbeddedResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\ResourceServerClient.cs" />
+    <Compile Include="Clients\IResourceServerClient.cs" />
     <Compile Include="Core\Http\ApiConnection.cs" />
     <Compile Include="Clients\BlacklistedTokensClient.cs" />
     <Compile Include="Clients\ClientBase.cs" />
@@ -86,6 +88,8 @@
     <Compile Include="Models\EmailProviderUpdateRequest.cs" />
     <Compile Include="Models\EmailVerificationTicketRequest.cs" />
     <Compile Include="Models\PasswordChangeTicketRequest.cs" />
+    <Compile Include="Models\ResourceServerUpdateRequest.cs" />
+    <Compile Include="Models\ResourceServerCreateRequest.cs" />
     <Compile Include="Models\RuleCreateRequest.cs" />
     <Compile Include="Models\RuleUpdateRequest.cs" />
     <Compile Include="Models\TenantSettingsUpdateRequest.cs" />

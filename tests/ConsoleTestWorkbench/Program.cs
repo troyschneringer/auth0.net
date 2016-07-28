@@ -32,6 +32,9 @@ namespace ConsoleTestWorkbench
             // Test device credentials
             //await TestDeviceCredentialsMethods(apiClient);
 
+            // Test resource server methods
+            await TestResourceServerMethods(apiClient);
+
             // Test rules
             //await TestRuleMethods(apiClient);
 
@@ -178,6 +181,40 @@ namespace ConsoleTestWorkbench
             //{
             //    var importUsersResponse = await apiClient.Jobs.ImportUsers("con_lQKQee7ZnEGc6OYH", "user-import-test.json", fs);
             //}
+        }
+
+        private static async Task TestResourceServerMethods(ManagementApiClient apiClient)
+        {
+            // Create a new resource server
+            var newResourceServerRequest = new ResourceServerCreateRequest
+            {
+                Identifier = "https://new-resource-server.com/",
+                Name = "New Resource Server",
+                Scopes = new []
+                {
+                    new Scope {  Value = "name", Description = "description" }
+                },
+                SigningAlgorithm = "RS256",
+                TokenLifetime = 72000
+            };
+
+            var newResourceServer = await apiClient.ResourceServers.CreateAsync(newResourceServerRequest);
+
+            // Get a single resource server
+            var resourceServer = await apiClient.ResourceServers.GetAsync(newResourceServer.Id);
+
+            // Get all resource servser
+            var resourceServers = await apiClient.ResourceServers.GetAllAsync();
+
+            // Update a rule
+            var updateResourceRequest = new ResourceServerUpdateRequest
+            {
+                Name = "Updated Resource Server"
+            };
+            var updatedResourceServer = await apiClient.ResourceServers.UpdateAsync(newResourceServer.Id, updateResourceRequest);
+
+            // Delete a resource server
+            await apiClient.ResourceServers.DeleteAsync(newResourceServer.Id);
         }
 
         private static async Task TestRuleMethods(ManagementApiClient apiClient)

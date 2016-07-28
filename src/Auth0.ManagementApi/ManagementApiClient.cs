@@ -48,6 +48,12 @@ namespace Auth0.ManagementApi
         public IJobsClient Jobs { get; }
 
         /// <summary>
+        /// Contains all the methods to call the /resource-servers endpoints.
+        /// </summary>
+        /// <value>The resource servers.</value>
+        public IResourceServerClient ResourceServers { get; }
+
+        /// <summary>
         /// Contains all the methods to call the /rules endpoints.
         /// </summary>
         /// <value>The rules.</value>
@@ -107,6 +113,7 @@ namespace Auth0.ManagementApi
             DeviceCredentials = new DeviceCredentialsClient(apiConnection);
             EmailProvider = new EmailProviderClient(apiConnection);
             Jobs = new JobsClient(apiConnection);
+            ResourceServers = new ResourceServerClient(apiConnection);
             Rules = new RulesClient(apiConnection);
             Stats = new StatsClient(apiConnection);
             TenantSettings = new TentantSettingsClient(apiConnection);

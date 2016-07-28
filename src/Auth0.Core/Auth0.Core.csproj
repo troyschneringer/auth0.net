@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Base\PagingInformation.cs" />
+    <Compile Include="Base\ResourceServerBase.cs" />
     <Compile Include="Collections\IPagedList.cs" />
     <Compile Include="Collections\PagedList.cs" />
     <Compile Include="Exceptions\ApiException.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="ResourceServer.cs" />
     <Compile Include="Management\Rule.cs" />
     <Compile Include="Base\RuleBase.cs" />
+    <Compile Include="Scope.cs" />
     <Compile Include="Serialization\ApiErrorConverter.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Base\UserBase.cs" />

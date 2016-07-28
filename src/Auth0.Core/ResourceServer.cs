@@ -2,12 +2,15 @@ using Newtonsoft.Json;
 
 namespace Auth0.Core
 {
-    public class ResourceServer
+    /// <summary>
+    /// Represents a resource server (api) in Auth0.
+    /// </summary>
+    public class ResourceServer : ResourceServerBase
     {
-        [JsonProperty("identifier")]
-        public string Identifier { get; set; }
-
-        [JsonProperty("scopes")]
-        public string[] Scopes { get; set; }
+        /// <summary>
+        /// The id of the resource server.
+        /// </summary>
+        [JsonProperty("id")]
+        public string Id { get; set; }
     }
 }
